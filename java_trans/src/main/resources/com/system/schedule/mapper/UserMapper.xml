@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.schedule.mapper.UserMapper">
+
+    <select id="findUserById" resultType="com.system.schedule.entity.Users">
+        SELECT user_id, user_name, nickname, usertype, password
+        FROM users
+        WHERE user_id = #{userId}
+    </select>
+
+    <select id="findAllUsers" resultType="com.system.schedule.dto.user.UserRes">
+        SELECT user_id, user_name, nickname, usertype
+        FROM users
+    </select>
+
+    <select id="findByNameAndEmail" resultType="com.system.schedule.entity.Users">
+        SELECT *
+        FROM users
+        WHERE user_id = #{userId} AND email = #{email}
+    </select>
+
+    <update id="updatePassword">
+        UPDATE users
+        SET password = #{password}
+        WHERE user_id = #{userId}
+    </update>
+
+    <update id="updateVerification">
+        UPDATE users
+        SET verification = #{verification}
+        WHERE user_id = #{userId}
+    </update>
+
+</mapper>

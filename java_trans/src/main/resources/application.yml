@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/schedule-system
+    username: root
+    password: 123456
+  mail:
+    host: smtp.163.com
+    port: 25
+    username: 13039257216@163.com
+    password: 050207Whq
+    properties:
+      mail:
+        smtp:
+          auth: true
+
+  mybatis:
+    mapper-locations: classpath*:com/system/schedule/mapper/*.xml
+    type-aliases-package: com.system.schedule.entity,com.system.schedule.dto
+    configuration:
+      map-underscore-to-camel-case: true
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+
+server:
+  port: 5133
+
+jwt:
+  secret: "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDI2a2EJ7m872v0afyoSDJT2o1+SitIeJSWtLJU8/Wz2m7gStexajkeD+Lka6DSTy8gt9UwfgVQo6uKjVLG5Ex7PiGOODVqAEghBuS7JzIYU5RvI543nNDAPfnJsas96mSA7L/mD7RTE2drj6hf3oZjJpMPZUQI/B1Qjb5H3K3PNwIDAQAB"
+  expiration: 86400
